@@ -7,7 +7,7 @@ intents.presences = True
 intents.members = True
 
 token = "MTEyNzkxNjUyMTk3MzM1ODY1Mw.Gq1VJG.3myt1oh47mT2u1OOb-EivHNez5mmC280cx_Rok"
-
+#test
 bot = commands.Bot(command_prefix='$', description="text", intents=intents)
 
 @bot.event
@@ -25,7 +25,7 @@ async def load_extensions():
 
 
 
-        
+
 @bot.event
 async def on_connect():
     await load_extensions()
