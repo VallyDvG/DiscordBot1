@@ -3,7 +3,9 @@ from discord.ext import commands
 from dotenv import load_dotenv
 import os
 load_dotenv()
-
+Viorel = 180328125765386240 
+Birgovan = 339854159761244161
+Vali = 289715372813320193
 
 token = os.getenv('TOKEN')
 
@@ -28,8 +30,16 @@ async def load_extensions():
     except Exception as e:
         print(f"Failed with load exception {e}")
 
-
-
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:
+        return
+    if not message.content.startswith("$"):
+        if message.author.id == Vali or message.author.id == Viorel:
+            await message.reply(f"Hello, {message.author.mention}! You said: {message.content}")
+        elif message.author.id ==Birgovan:
+            await message.reply("Nu ai voie!")
+    await bot.process_commands(message)
 
 @bot.event
 async def on_connect():
