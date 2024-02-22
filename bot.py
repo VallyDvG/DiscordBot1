@@ -1,13 +1,18 @@
 import discord
 from discord.ext import commands
+from dotenv import load_dotenv
+import os
+load_dotenv()
+
+
+token = os.getenv('TOKEN')
+
 
 intents = discord.Intents.all()
 intents.messages = True
 intents.presences = True
 intents.members = True
 
-token = "token"
-#test
 bot = commands.Bot(command_prefix='$', description="text", intents=intents)
 
 @bot.event
