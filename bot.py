@@ -16,7 +16,11 @@ intents.presences = True
 intents.members = True
 
 bot = commands.Bot(command_prefix='$', description="text", intents=intents)
+@bot.event
+async def on_connect():
+    await load_extensions()
 
+    
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')
@@ -41,8 +45,6 @@ async def on_message(message):
             await message.reply("Nu ai voie!")
     await bot.process_commands(message)
 
-@bot.event
-async def on_connect():
-    await load_extensions()
+
 
 bot.run(token)

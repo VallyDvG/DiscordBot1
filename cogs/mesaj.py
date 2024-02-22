@@ -5,7 +5,7 @@ from datetime import datetime, date
 now = datetime.now()
 current_time = now.strftime("%H:%M:%S")
 
-formatted_date = today.strftime("%d-%B-%Y")
+formatted_date = datetime.now().strftime("%d-%B-%Y")
 
 class BotCommands(commands.Cog):
     def __init__(self, bot):
@@ -28,7 +28,7 @@ class BotCommands(commands.Cog):
 
     @commands.command()
     async def data(self, ctx):
-        await ctx.send(current_time)
+        await ctx.send(formatted_date)
 
 
 async def setup(bot):
